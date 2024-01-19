@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import useJsonFetch from "../hooks/useJsonFetch";
 
 type Post = {
   content: string;
@@ -9,11 +10,18 @@ type Post = {
 
 const PostsList = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const { data, loading, error } = useJsonFetch(
+    `${import.meta.env.VITE_POSTS_URL}posts`
+  );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (typeof data === "string") setPosts(JSON.parse(data));
+  }, [data]);
 
   return (
     <>
+      {loading && <div className="loading">Loading...</div>}
+      {error && <div className="loading">Error...</div>}
       <NavLink className="create" to="/posts/new">
         Создать пост
       </NavLink>
