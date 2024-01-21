@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import userIcon from "../assets/user-icon.svg";
 
 export type PostProps = {
@@ -7,8 +8,9 @@ export type PostProps = {
 };
 
 const Post = ({ post }: { post: PostProps }) => {
+  const navigate = useNavigate();
   return (
-    <li key={post.id}>
+    <li key={post.id} onClick={() => navigate(`/${post.id}`)}>
       <article className="post">
         <div className="user-info">
           <img src={userIcon} alt="photo" />
