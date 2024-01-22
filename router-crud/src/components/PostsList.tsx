@@ -1,17 +1,18 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useJsonFetch from "../hooks/useJsonFetch";
 import Post, { PostProps } from "./Post";
+import PostsContext from "../context/PostsContext";
 
 const PostsList = () => {
-  // const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostProps[]>([]);
   const { data, loading, error } = useJsonFetch(
     `${import.meta.env.VITE_POSTS_URL}posts`
   );
 
-  // useEffect(() => {
-  //   if (typeof data === "string") setPosts(JSON.parse(data));
-  // }, [data]);
+  useEffect(() => {
+    if (typeof data === "string") setPosts(JSON.parse(data));
+  }, [data]);
 
   return (
     <>
@@ -21,10 +22,11 @@ const PostsList = () => {
         Создать пост
       </NavLink>
       <ul className="posts">
-        {data &&
-          JSON.parse(data).map((post: PostProps) => {
+        <PostsContext.Provider value={posts}>
+          {posts.map((post: PostProps) => {
             return <Post post={post} />;
           })}
+        </PostsContext.Provider>
       </ul>
     </>
   );

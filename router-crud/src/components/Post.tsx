@@ -10,7 +10,7 @@ export type PostProps = {
 const Post = ({ post }: { post: PostProps }) => {
   const navigate = useNavigate();
   return (
-    <li key={post.id} onClick={() => navigate(`/${post.id}`)}>
+    <li key={post.id} onClick={() => navigate(`/posts/${post.id}`)}>
       <article className="post">
         <div className="user-info">
           <img src={userIcon} alt="photo" />
