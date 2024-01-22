@@ -18,16 +18,20 @@ const PostsList = () => {
     <>
       {loading && <div className="loading">Loading...</div>}
       {error && <div className="loading">Error...</div>}
-      <NavLink className="create" to="/posts/new">
-        Создать пост
-      </NavLink>
-      <ul className="posts">
-        <PostsContext.Provider value={posts}>
-          {posts.map((post: PostProps) => {
-            return <Post post={post} />;
-          })}
-        </PostsContext.Provider>
-      </ul>
+      <div className="box-posts">
+        <header className="box-create">
+          <NavLink className="create" to="/posts/new">
+            Создать пост
+          </NavLink>
+        </header>
+        <ul className="posts">
+          <PostsContext.Provider value={posts}>
+            {posts.map((post: PostProps) => {
+              return <Post post={post} />;
+            })}
+          </PostsContext.Provider>
+        </ul>
+      </div>
     </>
   );
 };

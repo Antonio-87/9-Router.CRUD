@@ -8,9 +8,10 @@ const PostCreate = () => {
   const navigate = useNavigate();
 
   const addPost = () => {
-    useJsonFetch(`${import.meta.env.VITE_POSTS_URL}posts`, {
+    const { error } = useJsonFetch(`${import.meta.env.VITE_POSTS_URL}posts`, {
       body: JSON.stringify({ id: 0, content: value }),
     });
+    if (error === null) navigate(-1);
   };
 
   return (
@@ -32,7 +33,6 @@ const PostCreate = () => {
           onChange={(e) => setValue(e.target.value)}
           onClick={() => {
             addPost();
-            navigate(-1);
           }}
         ></textarea>
       </main>
