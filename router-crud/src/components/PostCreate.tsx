@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useJsonFetch from "../hooks/useJsonFetch";
 import { useNavigate } from "react-router-dom";
 import iconClose from "../assets/close.svg";
 
@@ -8,14 +7,21 @@ const PostCreate = () => {
   const navigate = useNavigate();
 
   const addPost = () => {
-    const { error } = useJsonFetch(`${import.meta.env.VITE_POSTS_URL}posts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: 0, content: value }),
-    });
-    if (error === null) navigate(-1);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_POSTS_URL}posts`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: 0, content: value }),
+        });
+        if (response.status === 204) navigate(-1);
+      } catch (e) {
+        new Error(`No create post`);
+      }
+    };
+    fetchData();
   };
 
   return (

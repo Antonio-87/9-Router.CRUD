@@ -14,7 +14,7 @@ const useJsonFetch = (url: string, options = {}) => {
       try {
         const response = await fetch(url, options);
         const result = await response.json();
-        if (timestampRef.current === timestamp) setData(result);
+        if (timestampRef.current === timestamp) setData(JSON.stringify(result));
       } catch (e) {
         setError(e as Error);
       } finally {
