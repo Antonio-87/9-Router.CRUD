@@ -9,36 +9,46 @@ const PostCreate = () => {
 
   const addPost = () => {
     const { error } = useJsonFetch(`${import.meta.env.VITE_POSTS_URL}posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ id: 0, content: value }),
     });
     if (error === null) navigate(-1);
   };
 
   return (
-    <div className="window-create">
-      <header>
-        <img
-          className="close"
-          src={iconClose}
-          alt="close"
-          onClick={() => navigate(-1)}
-        />
-      </header>
-      <main>
-        <textarea
-          className="input-content"
-          cols={30}
-          rows={10}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          onClick={() => {
-            addPost();
-          }}
-        ></textarea>
-      </main>
-      <footer>
-        <button className="create">Опубликовать</button>
-      </footer>
+    <div className="container-create">
+      <div className="window-create">
+        <header className="box-close">
+          <img
+            className="close"
+            src={iconClose}
+            alt="close"
+            onClick={() => navigate(-1)}
+          />
+        </header>
+        <main>
+          <textarea
+            className="input-content"
+            maxLength={196}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onSubmit={(e) => e.preventDefault()}
+          ></textarea>
+        </main>
+        <footer className="box-publish">
+          <button
+            className="publish"
+            onClick={() => {
+              addPost();
+            }}
+          >
+            Опубликовать
+          </button>
+        </footer>
+      </div>
     </div>
   );
 };
