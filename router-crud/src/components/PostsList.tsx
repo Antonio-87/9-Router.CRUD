@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useJsonFetch from "../hooks/useJsonFetch";
 import Post, { PostProps } from "./Post";
-import PostsContext from "../context/PostsContext";
 
 const PostsList = ({
   hendleProps,
