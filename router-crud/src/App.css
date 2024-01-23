@@ -35,7 +35,8 @@ li {
   margin-top: 1rem;
 }
 
-.user-info {
+.user-info,
+.user-info-view {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -78,7 +79,9 @@ li {
 }
 
 .create,
-.publish {
+.publish,
+.chenge,
+.delete {
   color: white;
   text-decoration: none;
   display: block;
@@ -91,7 +94,8 @@ li {
   background-color: rgb(28, 132, 188);
 }
 
-.container-create {
+.container-create,
+.container-view {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -104,7 +108,8 @@ li {
   background-color: rgb(120, 111, 111);
 }
 
-.window-create {
+.window-create,
+.window-view {
   height: 18rem;
   padding: 1rem;
   background-color: white;
@@ -154,6 +159,43 @@ li {
 
 .close,
 .publish,
-.create {
+.create,
+.chenge,
+.delete {
   cursor: pointer;
+}
+
+.content-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.post-view {
+  height: 18rem;
+}
+
+.user-info-view {
+  height: 5rem;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.chenge,
+.delete {
+  height: 3rem;
+  width: 8rem;
+  font-size: 20px;
+  margin: 0;
+}
+
+.delete {
+  margin-left: 3rem;
 }
