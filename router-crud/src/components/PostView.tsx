@@ -57,7 +57,7 @@ const PostView = ({ posts }: { posts: PostProps[] }) => {
               className="close"
               src={iconClose}
               alt="close"
-              onClick={() => navigate(-1)}
+              onClick={() => navigate(`/`, { replace: true })}
             />
           </div>
           <p className="content-view">{post?.content}</p>
