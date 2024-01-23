@@ -7,21 +7,74 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -15rem);
   display: flex;
   flex-direction: column;
   width: 40rem;
-  height: 30rem;
+  min-height: 30rem;
   padding: 1rem;
   background-color: rgb(214, 207, 207);
 }
 
+.posts {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.icon-user {
+  width: 3rem;
+  height: 3rem;
+  padding-bottom: 1rem;
+}
+
+.user-name {
+  color: rgb(107, 157, 198);
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.created {
+  color: gray;
+  font-weight: 400;
+  margin-left: 1rem;
+}
+
+.content {
+  padding: 1rem 1rem;
+  margin: 0;
+  border-top: 1px solid gray;
+}
+
 .box-create,
 .post {
-  height: 3rem;
   background-color: white;
   border: 1px solid rgb(182, 172, 172);
   border-radius: 5px;
+}
+
+.box-create {
+  height: 3rem;
 }
 
 .create,

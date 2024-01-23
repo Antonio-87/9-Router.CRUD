@@ -27,7 +27,7 @@ const PostsList = () => {
         <ul className="posts">
           <PostsContext.Provider value={posts}>
             {posts.map((post: PostProps) => {
-              return <Post post={post} />;
+              return <Post key={post.id} post={post} />;
             })}
           </PostsContext.Provider>
         </ul>
