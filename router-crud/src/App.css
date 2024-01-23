@@ -95,7 +95,8 @@ li {
 }
 
 .container-create,
-.container-view {
+.container-view,
+.container-edit {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -109,7 +110,8 @@ li {
 }
 
 .window-create,
-.window-view {
+.window-view,
+.window-edit {
   height: 18rem;
   padding: 1rem;
   background-color: white;
@@ -117,7 +119,8 @@ li {
   border-radius: 5px;
 }
 
-.box-close {
+.box-close,
+.box-close-edit {
   height: 3rem;
   border-bottom: 1px solid gray;
 }
@@ -144,7 +147,8 @@ li {
   outline: none;
 }
 
-.box-publish {
+.box-publish,
+.box-publish-edit {
   height: 5rem;
   border-top: 1px solid gray;
   padding-top: 1.5rem;
@@ -198,4 +202,20 @@ li {
 
 .delete {
   margin-left: 3rem;
+}
+
+.description {
+  position: absolute;
+  color: gray;
+  left: 7rem;
+  top: 3rem;
+  width: 20rem;
+}
+
+.box-close-edit {
+  height: 4rem;
+}
+
+.box-publish-edit {
+  padding-top: 1rem;
 }

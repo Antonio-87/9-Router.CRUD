@@ -62,7 +62,12 @@ const PostView = ({ posts }: { posts: PostProps[] }) => {
           </div>
           <p className="content-view">{post?.content}</p>
           <div className="navigation">
-            <button className="chenge">Изменить</button>
+            <button
+              className="chenge"
+              onClick={() => navigate(`/posts/${postId}/edit`)}
+            >
+              Изменить
+            </button>
             <button className="delete" onClick={() => deletePost()}>
               Удалить
             </button>
