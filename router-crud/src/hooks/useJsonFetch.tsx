@@ -23,6 +23,7 @@ const useJsonFetch = (url: string, options = {}) => {
     };
     fetchData();
   }, []);
+
   return { data, loading, error };
 };
 
